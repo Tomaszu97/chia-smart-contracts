@@ -1,0 +1,8 @@
+# compile chialisp to hex
+cdv clsp build piggy.clsp
+
+# curry chialisp - can be done to both .clsp and already compiled .clsp.hex (the latter is faster)
+cdv clsp curry piggy-curry.clsp -a 1234 -a 0xdeaddead
+
+# convert wallet public address to puzzle hash:
+python3 -c 'import chia.util.bech32m as b; print(b.decode_puzzle_hash("txch15t4qzk6kcnhnnk6tl53fy7d49eqchxmycyyt84xan7tkn7tpm6ssk050nh").hex())'
